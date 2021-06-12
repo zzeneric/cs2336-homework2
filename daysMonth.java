@@ -1,27 +1,27 @@
 import java.util.Scanner;
 
 public class daysMonth{
-    Scanner scanner = new Scanner(System.in);
-    String month;
-    int year;
+    Scanner scanner = new Scanner(System.in); // New scanner for input
+    String month; // Month var
+    int year; // Year var
 
-    public int monthCheck(){
-        if(month.equals("Jan") || month.equals("Mar") || month.equals("May") || month.equals("Jul") || month.equals("Aug") || month.equals("Oct") || month.equals("Dec")){
+    public int monthCheck(){ // Check the months and return an integer value depending on month legnth
+        if(month.equals("Jan") || month.equals("Mar") || month.equals("May") || month.equals("Jul") || month.equals("Aug") || month.equals("Oct") || month.equals("Dec")){ // 31 days
             return 1;
-        }else if(month.equals("Apr") || month.equals("Jun") || month.equals("Sep") || month .equals("Nov")){
+        }else if(month.equals("Apr") || month.equals("Jun") || month.equals("Sep") || month .equals("Nov")){ // 30 days
             return 2;
-        }else if(month.equals("Feb")){
+        }else if(month.equals("Feb")){ // Check for leap year (if not 28 days)
             return 3;
         }
         return 0;
     }
 
-    public void getDays(){
-        if(monthCheck() == 1){
+    public void getDays(){ // Check the days per month taking into account leap years
+        if(monthCheck() == 1){ // 31 days
             System.out.println(month + " " + year + " has 31 days");
-        }else if(monthCheck() == 2){
+        }else if(monthCheck() == 2){ // 30 days
             System.out.println(month + " " + year + " has 30 days");
-        }else if(monthCheck() == 3){
+        }else if(monthCheck() == 3){ // Leap year
             if ((year % 4 == 0) && year % 100 != 0){
                 System.out.println(month + " " + year + " has 29 days");
             }else if ((year % 4 == 0) && (year % 100 == 0) && (year % 400 == 0)){
@@ -32,18 +32,18 @@ public class daysMonth{
         }
     }
     
-    public void getInput(){
-        String inputYear;
+    public void getInput(){ // Get user input
+        String inputYear; // year stored as string
         System.out.print("Enter a year: ");
-        inputYear = scanner.nextLine();
-        year = Integer.parseInt(inputYear);
+        inputYear = scanner.nextLine(); // Get next line
+        year = Integer.parseInt(inputYear); // Cast string to integer
 
-        System.out.print("Enter a month: ");
-        month = scanner.nextLine();
+        System.out.print("Enter a month: "); // Get month
+        month = scanner.nextLine(); // Store month as global string
     }
     
-    public static void main(String[] args){
-        daysMonth myObj = new daysMonth();
+    public static void main(String[] args){ // Main function
+        daysMonth myObj = new daysMonth(); // Initialize class as object
         myObj.getInput();
         myObj.getDays();
     }
