@@ -1,3 +1,5 @@
+// Raghav Pillai, 6/11/21
+
 import java.util.Scanner;
 
 public class daysMonth{
@@ -21,12 +23,12 @@ public class daysMonth{
             System.out.println(month + " " + year + " has 31 days");
         }else if(monthCheck() == 2){ // 30 days
             System.out.println(month + " " + year + " has 30 days");
-        }else if(monthCheck() == 3){ // Leap year
-            if ((year % 4 == 0) && year % 100 != 0){
+        }else if(monthCheck() == 3){ // Feb (possible leap year)
+            if ((year % 4 == 0) && year % 100 != 0){ // If leap year (checking 1)
                 System.out.println(month + " " + year + " has 29 days");
-            }else if ((year % 4 == 0) && (year % 100 == 0) && (year % 400 == 0)){
+            }else if ((year % 4 == 0) && (year % 100 == 0) && (year % 400 == 0)){ // Checking 2 leap year
                 System.out.println(month + " " + year + " has 29 days");
-            }else{
+            }else{ // Not a leap year
                 System.out.println(month + " " + year + " has 28 days");
             }
         }
